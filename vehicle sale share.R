@@ -2,10 +2,14 @@
 # data viz to accompany Mehul Gupta's CPR "Inflation Reduction Act's EV tax credits""
 # 11.3.2022
 
+# data from page 182
+# https://tedb.ornl.gov/wp-content/uploads/2021/02/TEDB_Ed_39.pdf#page=182
+
 library(readxl)
 library(dplyr)
 library(ggplot2)
 library(ggrepel)
+library(knitr)
 
 
 setwd("~/Desktop/CPR/electric vehicle tax credits Nov 2022")
