@@ -35,7 +35,7 @@ ggplot(df, aes(x = Year, Hybrid)) +
   labs(x = "Year", 
        y = "Share of All Light Vehicles", 
        title = "Electric Vehicle Share Has Grown Slowly",
-       subtitle = "Share of Electric Vehicle Sales relative to Hybrid and Plug-ins",
+       subtitle = "Share of Electric Vehicle Sales Relative to Hybrid and Plug-ins",
        caption = c("\n Source: Transportation Energy Book Data Book, Edition 39 (2021) \n 
                    Author: Andrew Dunn \n 
                    Editor: Zai Rutter \n 
