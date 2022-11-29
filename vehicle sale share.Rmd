@@ -79,14 +79,15 @@ ggplot(df, aes(x = Year, Hybrid)) +
   # Labels and whole graph formatting
   labs(x = "Year", 
        y = "Share of All Light Vehicles", 
-       title = "Inflation Reduction Act Will Lead to Rapid Growth in Share of Electric Vehicles",
-       subtitle = "Actual and Projected Share of Electric Vehicle Sales Relative to Hybrid and Plug-ins",
+       title = "Electric Vehicle Sales are Projected to Grow Rapidly in the Future",
+       subtitle = "Historic and Projected Clean Vehicle Adoption Rates (2010-35)",
        caption = c("\n Sources: Transportation Energy Book Data Book, Edition 39 (2021) \n 
                    Electric Cars Are Finding Their Next Gear (2022) \n
                    Author: Andrew Dunn \n 
                    Editor: Zai Rutter \n 
-                   Date: Nov 23, 2022"),
+                   Date: Nov 29, 2022"),
        color = 'Committees') +
+  
   theme(plot.caption = element_text(lineheight = 0.5, size = 7),
         plot.caption.position = "plot",
         plot.title = element_text(hjust = 0.5), 
@@ -97,6 +98,8 @@ ggplot(df, aes(x = Year, Hybrid)) +
         panel.background = element_blank()) 
 
 
+# save the graph
+ggsave("clean_vehicle_graph.png")
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
