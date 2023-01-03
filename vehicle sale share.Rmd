@@ -14,8 +14,11 @@ library(readxl)
 library(dplyr)
 library(ggplot2)
 library(knitr)
+library(CPRDataViz)
+library(ggrepel)
+library(tidyverse)
 
-setwd("~/Desktop/CPR/electric vehicle tax credits Nov 2022")
+#setwd("~/Desktop/CPR/electric vehicle tax credits Nov 2022")
 
 # Prior data
 full_df <- read_excel("Hybrid and Plug-In Vehicle Sales.xlsx")
@@ -50,11 +53,18 @@ df[nrow(df) + 1,] = list(2025, hybrid_2025, plugin_2025, battery_2025)
 df[nrow(df) + 1,] = list(2030, hybrid_2030, plugin_2030, battery_2030)
 df[nrow(df) + 1,] = list(2035, hybrid_2035, plugin_2035, battery_2035)
 
+# Zai Rutter ~ adding final points per Mehul's Request
+
+#data_ends <- pivot_longer(cols = !Year, names_to = "type", values_to = "value",df)
+data_ends <- df %>% filter(Year == 2035)
+data_ends <- pivot_longer(cols = !Year, names_to = "type", values_to = "value",data_ends)
+
 ```
 
 
 ```{r graph, echo=FALSE}
 ggplot(df, aes(x = Year, Hybrid)) +
+  #theme_cpr() +
   
   # Data lines
   geom_line(aes(y = Hybrid), color = "darkred") + 
@@ -94,8 +104,17 @@ ggplot(df, aes(x = Year, Hybrid)) +
         plot.subtitle = element_text(hjust = 0.5, size = 9),
         axis.title = element_text(size = 9),
         panel.grid.minor = element_blank(), 
-        panel.grid.major.y = element_line(color = "gray94"),
+        panel.grid.major.y = element_blank(),
         panel.background = element_blank()) 
+  
+  # Zai Rutter adding final data points per request
+#geom_text_repel(
+ #  aes(label = value), data = data_ends,
+  # fontface ="plain", color = "black", size = 3
+  #)
+  
+  #scale_y_continuous(sec.axis = sec_axis(~ ., breaks = data_ends$value))
+  #Now he wants mid marks instead..
 
 
 # save the graph
